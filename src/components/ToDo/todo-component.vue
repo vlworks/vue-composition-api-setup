@@ -18,18 +18,20 @@ const checkedTodo = (id) =>
       item.isChecked = !item.isChecked;
     }
   });
-
 const deleteTodo = (index) => listTodos.value.splice(index, 1);
 </script>
 
 <template>
   <div>
-    <todo-create @add="addTodo"></todo-create>
-    <todo-list
-      :list-todos="listTodos"
-      @checked="checkedTodo"
-      @delete="deleteTodo"
-    ></todo-list>
+    <div class="section"><h3 class="center-align">TODO List</h3></div>
+    <div class="section"><todo-create @add="addTodo"></todo-create></div>
+    <div class="section">
+      <todo-list
+        :list-todos="listTodos"
+        @checked="checkedTodo"
+        @delete="deleteTodo"
+      ></todo-list>
+    </div>
   </div>
 </template>
 

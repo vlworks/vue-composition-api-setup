@@ -1,6 +1,10 @@
 <template>
-  <ul>
-    <li v-for="(todo, index) in listTodos" :key="todo.id">
+  <ul class="todo-list">
+    <li
+      v-for="(todo, index) in listTodos"
+      :key="todo.id"
+      class="todo-list-item"
+    >
       <todo-item
         :index="index"
         :todo="todo"
@@ -24,4 +28,8 @@ defineProps({
 const emit = defineEmits(["checked", "delete"]);
 </script>
 
-<style scoped></style>
+<style scoped>
+.todo-list-item {
+  margin: 10px 0;
+}
+</style>
