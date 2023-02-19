@@ -19,6 +19,7 @@ function submitForm() {
           name="todo"
           placeholder="Add todo"
           autocomplete="off"
+          required
         />
       </label>
       <input

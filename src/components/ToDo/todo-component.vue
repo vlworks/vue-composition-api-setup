@@ -32,6 +32,10 @@ const deleteTodo = (index) => listTodos.value.splice(index, 1);
         @delete="deleteTodo"
       ></todo-list>
     </div>
+    <div class="divider"></div>
+    <div class="section">
+
+    </div>
   </div>
 </template>
 
