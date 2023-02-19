@@ -8,6 +8,4 @@ import TodoComponent from "./components/ToDo/todo-component.vue";
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

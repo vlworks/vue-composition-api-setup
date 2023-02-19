@@ -1,5 +1,4 @@
 <script setup>
-
 defineProps({
   todo: {
     type: Object,
@@ -8,24 +7,24 @@ defineProps({
   index: {
     type: String && Number,
     required: true,
-  }
-})
+  },
+});
 
-const emit = defineEmits(['checked', 'delete'])
+const emit = defineEmits(["checked", "delete"]);
 </script>
 
 <template>
   <div>
-    <label :class="{done: todo.isChecked}">
-      <input type="checkbox" @change="emit('checked', todo.id)">
-      {{todo.title}}
+    <label :class="{ done: todo.isChecked }">
+      <input type="checkbox" @change="emit('checked', todo.id)" />
+      {{ todo.title }}
     </label>
-    <button @click="emit('delete', index)">x</button>
+    <button @click="emit('delete')">x</button>
   </div>
 </template>
 
 <style scoped>
- label.done {
-   text-decoration: line-through;
- }
+label.done {
+  text-decoration: line-through;
+}
 </style>

@@ -1,12 +1,12 @@
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 
-const title = ref('')
+const title = ref("");
 
-const emit = defineEmits(['add'])
-function submitForm(){
-  emit('add', title.value)
-  title.value = ''
+const emit = defineEmits(["add"]);
+function submitForm() {
+  emit("add", title.value);
+  title.value = "";
 }
 </script>
 
@@ -14,13 +14,11 @@ function submitForm(){
   <div>
     <form @submit.prevent="submitForm">
       <label>
-        <input type="text" name="todo" placeholder="add todo" v-model="title">
+        <input v-model="title" type="text" name="todo" placeholder="add todo" />
       </label>
-      <input type="submit" value="+">
+      <input type="submit" value="+" />
     </form>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
