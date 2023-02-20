@@ -9,11 +9,13 @@ export default function useFetchTodos(userOptions = {}) {
   const listTodos = ref([]);
   const fetchTodos = () => {
     isLoading.value = true;
-    fetch(`https://jsonplaceholder.typicode.com/todos/?_limit=${options.limit}&_delay=4000`)
+    fetch(
+      `https://jsonplaceholder.typicode.com/todos/?_limit=${options.limit}&_delay=4000`
+    )
       .then((response) => response.json())
       .then((json) => {
-        listTodos.value = json
-        isLoading.value = false
+        listTodos.value = json;
+        isLoading.value = false;
       });
   };
 
@@ -21,6 +23,6 @@ export default function useFetchTodos(userOptions = {}) {
 
   return {
     listTodos,
-    isLoading
+    isLoading,
   };
 }

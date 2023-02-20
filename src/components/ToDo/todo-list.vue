@@ -1,9 +1,11 @@
 <template>
   <ul class="todo-list">
-    <p class="flow-text center-align" v-if="listTodos.length === 0">Список задач пуст. Добавьте новую.</p>
+    <p v-if="listTodos.length === 0" class="flow-text center-align">
+      Список задач пуст. Добавьте новую.
+    </p>
     <li
-      v-else
       v-for="(todo, index) in listTodos"
+      v-else
       :key="todo.id"
       class="todo-list-item"
     >
