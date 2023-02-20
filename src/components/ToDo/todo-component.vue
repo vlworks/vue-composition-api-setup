@@ -20,7 +20,6 @@ const checkedTodo = (id) =>
     }
   });
 const deleteTodo = (index) => listTodos.value.splice(index, 1);
-// TODO: create empty list check
 </script>
 
 <template>
