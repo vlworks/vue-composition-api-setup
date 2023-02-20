@@ -1,10 +1,11 @@
 <script setup>
 import TodoCreate from "./todo-create.vue";
 import TodoList from "./todo-list.vue";
+import UtilsPreloader from "../Utils/utils-preloader.vue";
 
 import useFetchTodos from "./useFetchTodos.js";
 
-const { listTodos } = useFetchTodos();
+const { listTodos, isLoading } = useFetchTodos();
 const addTodo = (title) =>
   listTodos.value.push({
     id: Math.random().toString(32).substring(2),
@@ -20,7 +21,6 @@ const checkedTodo = (id) =>
   });
 const deleteTodo = (index) => listTodos.value.splice(index, 1);
 // TODO: create empty list check
-// TODO: create loader
 </script>
 
 <template>
@@ -28,7 +28,9 @@ const deleteTodo = (index) => listTodos.value.splice(index, 1);
     <div class="section"><h3 class="center-align">TODO List</h3></div>
     <div class="section"><todo-create @add="addTodo"></todo-create></div>
     <div class="section">
+      <utils-preloader v-if="isLoading"></utils-preloader>
       <todo-list
+        v-else
         :list-todos="listTodos"
         @checked="checkedTodo"
         @delete="deleteTodo"

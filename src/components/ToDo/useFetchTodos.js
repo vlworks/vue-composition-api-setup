@@ -5,16 +5,22 @@ const defaultOptions = {
 };
 export default function useFetchTodos(userOptions = {}) {
   const options = { ...defaultOptions, ...userOptions };
+  const isLoading = ref(false);
   const listTodos = ref([]);
   const fetchTodos = () => {
-    fetch(`https://jsonplaceholder.typicode.com/todos/?_limit=${options.limit}`)
+    isLoading.value = true;
+    fetch(`https://jsonplaceholder.typicode.com/todos/?_limit=${options.limit}&_delay=4000`)
       .then((response) => response.json())
-      .then((json) => (listTodos.value = json));
+      .then((json) => {
+        listTodos.value = json
+        isLoading.value = false
+      });
   };
 
   onMounted(fetchTodos);
 
   return {
     listTodos,
+    isLoading
   };
 }
